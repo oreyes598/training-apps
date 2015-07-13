@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Quake" representedClassName="Quake" syncable="YES">
+        <attribute name="quakeDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="quakeDepth" attributeType="Float" minValueString="0" syncable="YES"/>
+        <attribute name="quakeMagnitude" attributeType="Float" minValueString="0" maxValueString="100" syncable="YES"/>
+        <attribute name="quakePlace" optional="YES" attributeType="String" minValueString="2" maxValueString="64" syncable="YES"/>
+        <attribute name="quakeTitle" attributeType="String" syncable="YES"/>
+        <relationship name="quakeLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuakeLocation" inverseName="quake" inverseEntity="QuakeLocation" syncable="YES"/>
+    </entity>
+    <entity name="QuakeLink" representedClassName="QuakeLink" syncable="YES">
+        <attribute name="quakeLink" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="quakeLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuakeLocation" inverseName="quakeLink" inverseEntity="QuakeLocation" syncable="YES"/>
+    </entity>
+    <entity name="QuakeLocation" representedClassName="QuakeLocation" syncable="YES">
+        <attribute name="quakeLatitude" attributeType="Double" minValueString="-90" maxValueString="90" defaultValueString="0" syncable="YES"/>
+        <attribute name="quakeLongitude" attributeType="Double" minValueString="-180" maxValueString="180" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="quake" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quake" inverseName="quakeLocation" inverseEntity="Quake" syncable="YES"/>
+        <relationship name="quakeLink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuakeLink" inverseName="quakeLocation" inverseEntity="QuakeLink" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Quake" positionX="-218" positionY="-352" width="128" height="135"/>
+        <element name="QuakeLink" positionX="144" positionY="-244" width="128" height="73"/>
+        <element name="QuakeLocation" positionX="-74" positionY="-198" width="128" height="103"/>
+    </elements>
+</model>
